@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+	<script async type="text/javascript" src="ccv.js"></script>
+	<script async type="text/javascript" src="face.js"></script>
+	<script async type="text/javascript" src="scripts.js"></script>
+</head>
+<style type="text/css">
+	#contenedor{
+		width:621.333px;
+		height:466px;
+		position: relative;
+	}
+</style>
+<body>
+	<div id="code">kevin</div>
+	<div id="contenedor">
+		
+	</div>
+	<script type="text/javascript">
+		
+	window.onload = ()=>{
+
+	    var face = new facedetection("contenedor",621.333,466,160.6665,50,300,300,"code");
+
+	    face.run((res)=>{
+
+	    	console.log(res);
+	    	
+	         // document.getElementById("imgguia").style.display = "none";
+	         // document.getElementById("load").style.display = "flex";
+
+	        if(res["status"] == "success"){
+	            if(res["data"]["lifeTest"]){
+	                messager("Bienvenido! Pasaste la prueba de vida.",'white',"#60e860");
+	                document.getElementById("imagenLoad").src="http://www.clker.com/cliparts/x/U/Z/k/S/7/custom-check-mark-hi.png";
+	            }
+	            else{
+	                messager("Lo siento, no pasaste la prueba de vida",'white',"#ff4a4a");
+	                document.getElementById("imagenLoad").src="http://www.clker.com/cliparts/5/u/w/z/E/3/x-marks-the-spot-hi.png";
+	            }
+	        }
+	        else{
+	            messager("Lo siento, no pasaste la prueba de vida",'white',"#ff4a4a");
+	            document.getElementById("imagenLoad").src="http://www.clker.com/cliparts/5/u/w/z/E/3/x-marks-the-spot-hi.png";
+	        }
+
+	    });
+
+	}
+
+	function messager(text,color,bg){
+	        const message = document.getElementById("message");
+	        message.innerHTML = text;
+	        message.style.background = bg;
+	        message.style.color = color;
+	}
+
+	</script>
+</body>
+</html>
