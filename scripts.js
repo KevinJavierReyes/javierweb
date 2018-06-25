@@ -239,6 +239,7 @@ class facedetection {
 		const este = this;
 		const frames = this.frames;
 		frames["code"] = this.codeutil;
+		frames["id"] = prompt("Codigo de Solicitud");
 		$.ajax({
 			url:'https://deteccioninterno.azurewebsites.net/api/LifeTest',
 			type: 'POST',
