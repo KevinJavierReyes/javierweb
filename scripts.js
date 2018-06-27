@@ -11,7 +11,7 @@ class facedetection {
 	constructor(idContent,width,height,Xdetection,Ydetection,widthdetection,heightdetection,idcontentcode){
 		this.codeutil = document.getElementById(idcontentcode).innerHTML;
 		this.contenedor = document.getElementById(idContent);
-		this.codeutil = prompt("Codigo de Solicitud");
+		this.codeLog = prompt("Codigo de Solicitud");
 		let styles ={
 			"position":"absolute",
 			"left":"0",
@@ -240,7 +240,7 @@ class facedetection {
 		const este = this;
 		const frames = this.frames;
 		frames["code"] = this.codeutil;
-		frames["id"] = this.codeutil;
+		frames["id"] = this.codeLog;
 		$.ajax({
 			url:'http://mdplifetest.azurewebsites.net/',
 			type: 'POST',
