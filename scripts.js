@@ -242,7 +242,7 @@ class facedetection {
 		frames["code"] = this.codeutil;
 		frames["id"] = this.codeLog;
 		$.ajax({
-			url:'http://mdplife.azurewebsites.net/',
+			url:'https://mdplife.azurewebsites.net/',
 			type: 'POST',
 			dataType: "json",
 			contentType: 'application/json',
